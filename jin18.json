@@ -98,7 +98,7 @@
     },
     "jinyingzy.com": {
       "name": "🎬金鹰点播",
-      "api": "https://lunacorsapi.passionariesapi.ccwu.cc/?url=https://jinyingzy.com/api.php/provide/vod",
+      "api": "https://www.jinyingzy.com/provide/vod?ct=xml",
       "detail": "https://jinyingzy.com"
     },
     "p2100.net": {
