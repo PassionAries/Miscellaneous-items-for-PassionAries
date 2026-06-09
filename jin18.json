@@ -98,7 +98,7 @@
     },
     "jinyingzy.com": {
       "name": "🎬金鹰点播",
-      "api": "https://jinyingzy.com/api.php/provide/vod",
+      "api": "https://lunacorsapi.passionariesapi.ccwu.cc/?url=https://jinyingzy.com/api.php/provide/vod",
       "detail": "https://jinyingzy.com"
     },
     "p2100.net": {
@@ -138,7 +138,7 @@
     },
     "bdzy1.com": {
       "name": "🎬百度云zy",
-      "api": "https://api.apibdzy.com/api.php/provide/vod",
+      "api": "https://lunacorsapi.passionariesapi.ccwu.cc/?url=https://api.apibdzy.com/api.php/provide/vod",
       "detail": "https://bdzy1.com"
     },
     "1080zyku.com": {
@@ -153,7 +153,7 @@
     },
     "lovedan.net": {
       "name": "🎬艾旦影视",
-      "api": "https://lovedan.net/api.php/provide/vod",
+      "api": "https://lunacorsapi.passionariesapi.ccwu.cc/?url=https://lovedan.net/api.php/provide/vod",
       "detail": "https://lovedan.net"
     }
   }
