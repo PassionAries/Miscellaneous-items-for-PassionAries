@@ -6,6 +6,16 @@
       "api": "https://iqiyizyapi.com/api.php/provide/vod",
       "detail": "https://iqiyizyapi.com"
     },
+    "tyyszy.com": {
+      "name": "🎬天涯资源",
+      "api": "https://tyyszy.com/api.php/provide/vod",
+      "detail": "https://tyyszy.com/"
+    },
+    "tyyszyapi.com": {
+      "name": "🎬天涯影视",
+      "api": "https://tyyszyapi.com/api.php/provide/vod",
+      "detail": "https://tyyszyapi.com/"
+    },
     "mtzy.me": {
       "name": "🎬茅台资源",
       "api": "https://caiji.maotaizy.cc/api.php/provide/vod",
@@ -21,16 +31,6 @@
       "api": "https://ikunzyapi.com/api.php/provide/vod",
       "detail": "https://ikunzy.com"
     },
-    "tyyszy.com": {
-      "name": "🎬天涯资源",
-      "api": "https://tyyszy.com/api.php/provide/vod",
-      "detail": "https://tyyszy.com/"
-    },
-    "tyyszyapi.com": {
-      "name": "🎬天涯影视",
-      "api": "https://tyyszyapi.com/api.php/provide/vod",
-      "detail": "https://tyyszyapi.com/"
-    },
     "dyttzyapi.com": {
       "name": "🎬电影天堂",
       "api": "http://caiji.dyttzyapi.com/api.php/provide/vod",
@@ -45,11 +45,6 @@
       "name": "🎬量子资源",
       "api": "https://cj.lzcaiji.com/api.php/provide/vod",
       "detail": "https://cj.lzcaiji.com"
-    },
-    "1080zyku.com": {
-      "name": "🎬1080资源",
-      "api": "https://api.1080zyku.com/inc/apijson.php/",
-      "detail": "https://1080zyku.com"
     },
     "360zy.com": {
       "name": "🎬360 资源",
@@ -145,6 +140,16 @@
       "name": "🎬百度云zy",
       "api": "https://api.apibdzy.com/api.php/provide/vod",
       "detail": "https://bdzy1.com"
+    },
+    "1080zyku.com": {
+      "name": "🎬1080资源",
+      "api": "https://api.1080zyku.com/inc/apijson.php/",
+      "detail": "https://1080zyku.com"
+    },
+    "wsyzy.net": {
+      "name": "🎬无水印资源",
+      "api": "https://api.wsyzy.net/api.php/provide/vod",
+      "detail": "https://wsyzy.net/"
     },
     "lovedan.net": {
       "name": "🎬艾旦影视",
