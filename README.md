@@ -1,3 +1,12 @@
+# CORSAPI - API 代理转发服务
+
+基于 Cloudflare Workers 的通用 API 中转代理服务，用于加速和转发 API 请求。
+
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/SzeMeng76/CORSAPI)
+
+> **Credit**: 本项目二开自 [hafrey1/LunaTV-config](https://github.com/hafrey1/LunaTV-config)
+
+---
 # MoonTV/LunaTV 配置编辑器
 https://passionaries.github.io/Miscellaneous-items-for-PassionAries/  
 
@@ -7,6 +16,9 @@ https://passionaries.github.io/Miscellaneous-items-for-PassionAries/
 免费注册 **.qzz.io  和 **.qd.je 域名,成功注册后多获得+1个免费域名额度
 
 [注册地址](https://dash.domain.digitalplat.org/)
+## dnshe 免费域名注册链接(cwcc.cc)
+免费注册 **.cwcc.cc 域名
+
 
 ##  MoonTV/LunaTV配置
 订阅使用：复制下面链接  
@@ -55,7 +67,11 @@ https://raw.githubusercontent.com/hafrey1/LunaTV-config/refs/heads/main/LunaTV-c
 
 ### 1. 通用 API 代理
 
-使用 `?url=` 参数转发任意 API 请求
+通过 `?url=` 参数转发任意 API 请求：
+
+```
+https://api.example.workers.dev/?url=https://example.com/api
+```
 
 **示例：**
 
@@ -70,6 +86,41 @@ https://<你的域名>/?url=https://ikunzyapi.com/api.php/provide/vod/
 - **`source=jin18`** - 精简版（31个资源，仅普通内容）
 - **`source=jingjian`** - 精简+成人版（61个资源）
 - **`source=full`** - 完整版（88个资源，**默认**）
+
+为每个 API 源使用唯一路径（推荐）：
+
+```
+https://api.example.workers.dev/p/source1?url=https://api1.com/vod
+https://api.example.workers.dev/p/source2?url=https://api2.com/vod
+```
+
+这样可以：
+- 避免不同源之间的缓存冲突
+- 让客户端认为是不同的 API 地址
+- 提高兼容性和稳定性
+
+
+### 参数转发
+
+所有额外的 query 参数都会自动转发到目标 API：
+
+```
+请求：https://api.example.workers.dev/?url=https://example.com/api&ac=list&pg=1
+转发：https://example.com/api?ac=list&pg=1
+```
+---
+
+## 健康检查
+
+访问 `/health` 端点检查服务状态：
+
+```
+https://api.example.workers.dev/health
+```
+
+返回 `OK` 表示服务正常运行。
+
+---
 
 ### 3. 统一的 format 参数
 
@@ -90,7 +141,7 @@ https://<你的域名>/?url=https://ikunzyapi.com/api.php/provide/vod/
   
 #   
 
-🌐 部署到 Cloudflare Workers
+🌐 部署到 Cloudflare Workers 推荐
 
 1. 登录 [Cloudflare Dashboard](https://dash.cloudflare.com)。
 2. 进入 Workers & Pages → 创建应用程序（Create Application） → Workers → 从 Hello World! 开始 → 项目命名 → 部署 → 编辑代码。
@@ -270,7 +321,8 @@ https://<你的域名>/?format=3&source=full
 - **配置源更新**：配置源来自 GitHub，内容会定期更新。Worker 会缓存 7200 秒（2小时）。
 - **超时设置**：默认请求超时时间为 9 秒，超时后会返回错误信息。
 - **CORS 支持**：已启用完整的 CORS 支持，可直接在前端应用中调用。
-
+- **防止递归**：自动检测并阻止递归调用自身
+  
 ---   
   
 </details>
@@ -299,6 +351,24 @@ const JSON_SOURCES = {
 ```jsx
 const timeoutId = setTimeout(() => controller.abort(), 9000) // 改为其他值
 ```
+
+## 技术细节
+
+### 源标识符提取
+
+系统会自动从 API URL 中提取唯一标识符作为路径：
+
+- `caiji.maotaizy.cc` → `/p/maotai`
+- `iqiyizyapi.com` → `/p/iqiyi`
+- `api.maoyanapi.top` → `/p/maoyan`
+
+### 参数处理
+
+- 自动提取 `url=` 参数作为目标地址
+- 所有其他 query 参数自动转发到目标 API
+- 支持 POST/PUT 请求的 body 转发
+
+---
 
 ### 添加访问日志
 
@@ -528,6 +598,7 @@ console.log(`Request from: ${request.headers.get('cf-connecting-ip')}`)
 
 1. 维护者保留在不另行通知的情况下，随时修改或补充本免责声明的权利。
 2. 任何对本仓库内容的访问、使用、复制、修改或分发行为，均视为已充分阅读并接受本免责声明的全部内容。
+3. 本项目仅供学习和研究使用。使用本项目所产生的一切后果由使用者自行承担。
 
 
 
@@ -535,214 +606,11 @@ console.log(`Request from: ${request.headers.get('cf-connecting-ip')}`)
 
 
 ---
+## 致谢
 
+本项目基于 [hafrey1/LunaTV-config](https://github.com/hafrey1/LunaTV-config) 的 CORSAPI 部分进行二次开发和简化。
 
-
+---
 ## ⭐ Star History
-[![Star History](https://starchart.cc/hafrey1/LunaTV-config.svg?variant=light)](https://starchart.cc/hafrey1/LunaTV-config)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[![Star History](https://starchart.cc/PassionAries/Miscellaneous-items-for-PassionAries.svg?variant=light)](https://starchart.cc/PassionAries/Miscellaneous-items-for-PassionAries)
 
