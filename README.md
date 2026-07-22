@@ -15,11 +15,11 @@ https://passionaries.github.io/Miscellaneous-items-for-PassionAries/
 ## DigitalPlat 免费域名注册链接(us.kg)
 免费注册 **.qzz.io  和 **.qd.je 域名,成功注册后多获得+1个免费域名额度
 
-[注册地址](https://dash.domain.digitalplat.org/)
-## dnshe 免费域名注册链接(cwcc.cc)
-免费注册 **.cwcc.cc 域名
+[注册地址](https://dash.domain.digitalplat.org/signup?ref=YpSJlXdnQO)
+## dnshe 免费域名注册链接(cc.cd)
+免费注册 **.cwcc.cc 和 **.cc.cd域名
 
-
+[注册地址](https://my.dnshe.com/go.php?code=UfH7CDCLNR)
 ##  MoonTV/LunaTV配置
 订阅使用：复制下面链接  
 
